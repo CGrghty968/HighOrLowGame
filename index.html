@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High or Low Game</title>
+    <link rel="stylesheet" href="style.css" media="screen">
 </head>
 <body>
     <h1>High or Low Card Game</h1>
@@ -13,15 +14,18 @@
     <h2 id="roundCount">Begin Game</h2>
 
     <!-- img-tags to store the respective cards -->
-    <img id="card1" src="images/back.png">
-    <img id="card2" src="images/back.png">
+
+    <div>
+        <img id="card1" src="images/back.png"><img id="card2" src="images/back.png">
+        
+    </div>
     <br>
 
     <!-- Buttons for allowing the user to estimate higher or lower -->
      <button id="start">Start game</button>
-     <button id="higherBtn" hidden="true">Higher</button>
-     <button id="lowerBtn" hidden="true">Lower</button>
-     <button id="newGame" hidden="true">New game</button>
+     <button id="higherBtn" hidden="true" value="higher">Higher</button>
+     <button id="lowerBtn" hidden="true" value="lower">Lower</button>
+     <button id="nextRound" hidden="true">Next round</button>
 
      <!-- P-tag to display the score -->
      <p id="score"></p>

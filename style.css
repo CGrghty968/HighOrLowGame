@@ -1,0 +1,7 @@
+/*The css for the image tag of my HTML page*/
+img{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}

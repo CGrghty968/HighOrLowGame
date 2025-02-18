@@ -1,11 +1,6 @@
-// Create a button object, and add a listener for the start game function
-const startBtn = document.getElementById("start");
-startBtn.addEventListener('click', startGame);
-
-const newGameBtn = document.getElementById("newGame");
-// Score
-let score = document.getElementById("score");
-let scoreNo = 0;
+// Variables to inform the user of the currentRound
+let roundCount = 1; // Initialised to 1
+const currentRound = document.getElementById("roundCount");
 
 // Create button objects for the higher and lower guesses, with listeners
 const higherBtn = document.getElementById("higherBtn");
@@ -13,17 +8,25 @@ const lowerBtn = document.getElementById("lowerBtn");
 higherBtn.addEventListener('click', guess);
 lowerBtn.addEventListener('click', guess);
 
-// Creating the cards
-const card1 = document.getElementById("card1");
-const card2 = document.getElementById("card2");
-
-// Variables to inform the user of the currentRound
-let roundCount = 1; // Initialised to 1
-const currentRound = document.getElementById("roundCount");
 
 // Variable to store card 1's value
 let card1Val = 0;
 let card2Val = 0; 
+
+// Score
+let score = document.getElementById("score");
+let scoreNo = 0;
+
+// Creating the cards
+const card1 = document.getElementById("card1");
+const card2 = document.getElementById("card2");
+
+// Create a button object, and add a listener for the start game function
+const startBtn = document.getElementById("start");
+startBtn.addEventListener('click', startGame);
+
+const nextRoundBtn = document.getElementById("nextRound");
+nextRoundBtn.addEventListener('click', nextRound); 
 
 // Generate an array to store all the potential cards
 const cardArray = [];
@@ -32,7 +35,7 @@ for(let i=1; i <= 52; i++){
 }// End for loop
 console.log(cardArray);
 
-
+// Function for the generation of the card number
 function drawCard(){
     // Generates a random number between 1-52
     let cardNo = Math.floor((Math.random())*52)+1;
@@ -82,40 +85,50 @@ function guess(event){
     console.log("card1: ",card1Val,"card2: ",card2Val);
 
     // Store the guess of the user
-    let guess = event.target.innerHTML;
-    
+    let guess = event.target.value;
+    console.log(guess);
     // Switch and case
     if(guess == "higher"){
         guessHigher();
+        console.log("you choosed higher");
     }// End if
     else if(guess == "lower"){
         guessLower();
+        console.log("you choosed lower");
     }// End else
 
+    else{
+        console.log("unexpected");
+    }// End else
+    
+    // Disable the higher or lower buttons and prepare for next round
+    higherBtn.disabled = true;
+    lowerBtn.disabled = true;
+    nextRoundBtn.hidden = false;
 }// End guess()
 
 function guessHigher(){
-    if(card1Val > card2Val){
+    if(card2Val > card1Val){
         scoreNo++;
     }// End if
-    else if(card1Val == card2Val){
+    else if(card2Val < card1Val){
         console.log("was lower");
     }// End else
 
     // Update the score
-    score.innerHTML = "score: "+scoreNo;
+    score.innerHTML = "Score: "+scoreNo;
 }// End guessHigher()
 
 function guessLower(){
-    if(card1Val < card2Val){
+    if(card2Val < card1Val){
         scoreNo++;
     }// End if
-    else if(card1Val == card2Val){
+    else if(card2Val > card1Val){
         console.log("was greater");
     }// End else if
 
     // Update the score
-    score.innerHTML = "score "+scoreNo;
+    score.innerHTML = "Score: "+scoreNo;
 }// End guessLower()
 
 // Function to rectify the values of the cards
@@ -137,3 +150,20 @@ function rectifyCards(value){
 
     return value;
 }// End rectifyCards()
+
+function nextRound(){
+    // Update the round info 
+    roundCount++;
+    currentRound.innerHTML = "Round: "+roundCount;
+
+    // Return both of the cards face down
+    reset();
+
+    // Restart the game
+    startGame();
+    
+    // Re-enable the higher/lower buttons
+    higherBtn.disabled = false;
+    lowerBtn.disabled = false;
+    nextRoundBtn.hidden = true;
+}//End nextRound
