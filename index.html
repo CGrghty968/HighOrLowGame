@@ -4,34 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High or Low Game</title>
+    <!-- Linking the CSS stylesheet to my HTML page -->
     <link rel="stylesheet" href="style.css" media="screen">
+    <!-- Linking an icon to my HTML page -->
+    <link rel="icon" type="image/x-icon" href="/images/ico.png">
 </head>
-<body>
-    <h1>High or Low Card Game</h1>
-    <br>
-
+<body class="main">
+    <!-- Creating a DIV tag to store and center the title of the webpage -->
+    <div class="centerElement">
+        <h1 class="mainTitle">High or Low Card Game</h1>
+        <br>
+    </div>
     <!-- H2-tag to iterate on each round -->
-    <h2 id="roundCount">Begin Game</h2>
+    <h2 id="roundCount" style="align-items: right;">Begin Game</h2>
 
-    <!-- img-tags to store the respective cards -->
+    
 
-    <div>
-        <img id="card1" src="images/back.png"><img id="card2" src="images/back.png">
-        
+    <div class="centerElement">
+
+        <div class="container">
+            <!-- img-tags to store the respective cards -->
+            <img id="card1" src="images/back.png" class="item"><img id="card2" src="images/back.png" class="item">
+        </div>
     </div>
     <br>
 
-    <!-- Buttons for allowing the user to estimate higher or lower -->
-     <button id="start">Start game</button>
-     <button id="higherBtn" hidden="true" value="higher">Higher</button>
-     <button id="lowerBtn" hidden="true" value="lower">Lower</button>
-     <button id="nextRound" hidden="true">Next round</button>
+    <div class="centerElement">
+        <div class="container">
+            <!-- Container to group all buttons together -->
+            <div class="buttonContainer">
+                <button id="start">Start game</button>
+                <button id="higherBtn" hidden="true" value="higher">Higher</button>
+                <button id="lowerBtn" hidden="true" value="lower">Lower</button>
+                <button id="nextRound" hidden="true">Next round</button>
+            </div>
+        </div>
+        <div class="container">
+            <!-- The respective scores and quit button are stored separately -->
+            <p id="score" class="userScore"></p>
+            <div class="buttonContainer">
+                <button id="quitGame">Quit Game</button> 
+            </div>
+            <p id="dealerScore" class="dealerScore"></p>
+        </div>
+    </div>
      <br>
-     <button id="quitGame">Quit Game</button>
 
-     <!-- P-tag to display the score -->
-     <p id="score"></p>
+     <!-- DIV tag to store the previously played cards visually for the user -->
+      <div  class="prevCardContainer">
+        <br>
+        <div class="centerElement">
+            <a class="prevRoundTitle">Previous Rounds</a>
+        </div>
+        <!-- Using a table to store the cards -->
+        <table id="prevCardsDiv">
+            <p id="prevRounds"></p>
+        </table>
 
+        <br>
+      </div>
+      
+
+     
      <!-- Link the JavaScript file for functionality -->
       <script src="main(backUp).js"></script>
 </body>

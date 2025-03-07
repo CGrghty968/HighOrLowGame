@@ -1,7 +1,140 @@
 /*The css for the image tag of my HTML page*/
+.main{
+  /*All text colour will be standard*/
+  color: #d4d4dc;
+  font-family: 'Franklin Gothic Medium';
+
+  /*Set the background image for the website*/
+  background-image: url("/images/background.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+
+}
+
+.mainTitle{
+  align-items: center;
+  text-align: center;
+
+}
+
+button{
+    border-radius: 15%;
+    background-color:  #393f4d;
+    color: #d4d4dc;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 15px;
+}
+
+p{
+  background-color:  #393f4d;
+  border-radius: 15%;
+  font-size: 20px;
+}
+
+
+
+button:hover{
+  width: 70px;
+  height: 50px;
+  background-color:   #d4d4dc;
+  color: #393f4d;
+}
+
+button:disabled{
+  color: #1d1e22;
+}
+
+.buttonContainer{   
+    border-radius: 0.5em;
+    font: 1.2em sans-serif;
+  
+    display: flex;
+    justify-content: space-between;
+    height: 8em;
+    border-radius: 0.2em;
+  
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+        /* Adds space inside the container */
+    margin: 20px;
+        /* Adds space outside the container */
+    text-align: center;
+    border-radius: 10px;
+}
+
+h2{
+  background-color:  #393f4d;
+  border-radius: 100%;
+  height: 100px;
+  width: 5em;
+  text-align:center;
+  align-items: center;
+  padding-top: 50px;
+  
+}
+
 img{
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    
+    padding: .5%;
+    width:100px;
+    height:125px;
+}
+
+  
+.container {
+    height: 15em;
+    width: 30em;
+    border-radius: 25px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Set the main background colour for the website*/
+  background-color: #1d1e22;
+  }
+
+.userScore{
+    text-align: left;
+    justify-content: center;
+    display: flow-root;
+}
+
+.dealerScore{
+    text-align: right;
+    justify-content: right;
+}
+
+
+.prevCardContainer {
+  background-color:  #393f4d;
+  width: 300px;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  }
+
+.prevRoundTitle{
+  position: absolute;
+    /*Set the main background colour for the website*/
+    background-color: #1d1e22;
+  padding: 20px, 0px, 20px;
+  width: 12.5em;
+  height: 1.5em;
+  border-radius: 0.2em;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 75em;
+}
+
+.centerElement{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
